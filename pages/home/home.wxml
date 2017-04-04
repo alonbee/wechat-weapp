@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+    <view class="header">
+        <text class="date">早安 2017.04.04</text>
+        <text class="blessing">有个开心的一天</text>
+    </view>
+    <view class="main">
+        
+    </view>
+</view>

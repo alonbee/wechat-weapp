@@ -1,0 +1,21 @@
+/* pages/home/home.wxss */
+.container {
+    padding: 0 10px;
+    border-top: 1px solid #eee;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding: 30rpx 0;
+}
+
+.date {
+    font-size: 40rpx;
+    display: block;
+    margin-bottom: 10rpx;
+}
+
+.blessing {
+    font-size: 26rpx;
+}

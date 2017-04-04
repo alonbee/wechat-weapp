@@ -1,0 +1,5 @@
+/* pages/read/read.wxss */
+.container {
+    padding: 0 10px;
+    border-top: 1px solid #eee;
+}
