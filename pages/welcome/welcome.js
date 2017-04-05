@@ -23,7 +23,6 @@ Page({
   viewTap: function () {
     wx.switchTab({
       url: '../home/home',
-      
     });
   } 
 })

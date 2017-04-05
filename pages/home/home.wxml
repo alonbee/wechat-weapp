@@ -1,10 +1,15 @@
 <!--pages/home/home.wxml-->
 <view class="container">
     <view class="header">
-        <text class="date">早安 2017.04.04</text>
-        <text class="blessing">有个开心的一天</text>
+        <text class="date">{{good}} | {{time}}</text>
+        <text class="blessing">{{blessing}}</text>
     </view>
-    <view class="main">
-        
-    </view>
+    <swiper class="vol-swiper" current="{{current}}" bindchange="changeHandle">
+        <block wx:for="{{vols}}" wx:for-index="idx">
+            <swiper-item class="vol-swiper-item">
+                <import src="templates/vol.wxml" />
+                <template is="vol" data="{{item: item, idx: idx}}" />
+            </swiper-item>
+        </block>
+    </swiper>
 </view>
