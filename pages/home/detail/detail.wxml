@@ -1,0 +1,5 @@
+<!--pages/home/detail/detail.wxml-->
+<view class="container">
+    <import src="../templates/vol-detail.wxml" />
+    <template is="vol-detail" data="{{item: detail}}" />
+</view>

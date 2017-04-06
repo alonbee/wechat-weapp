@@ -1,0 +1,65 @@
+/* pages/home/detail/detail.wxss */
+
+.container {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column
+}
+
+.vol-picture {
+    width: 100%;
+    height: 460rpx;
+}
+
+.vol-meta {
+    flex-direction: row;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+
+.vol-author {
+    font-size: 30rpx;
+    font-weight: 300;
+    color: #666;
+}
+
+.vol-const {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 20rpx;
+}
+
+.vol-makettime {
+    font-size: 24rpx;
+    margin-left: 30rpx;
+    color: #999;
+}
+
+.vol-title {
+    margin-left: 40rpx;
+    font-size: 36rpx;
+    font-weight: 700;
+    margin-top: 30rpx;
+    letter-spacing: 2px;
+    color: #4b556c;
+}
+
+.vol-img {
+    margin-top: 20rpx;
+}
+
+.vol-img image {
+    float: right;
+    margin-right: 40rpx;
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;    
+}
+
+.vol-content {
+    color: #666;
+    margin: 20rpx 30rpx 0;
+    line-height: 44rpx;
+    letter-spacing: 2px;
+}

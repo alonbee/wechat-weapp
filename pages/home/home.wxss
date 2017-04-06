@@ -1,79 +1,48 @@
 /* pages/home/home.wxss */
+
 .container {
-    padding: 0 10px;
-    border-top: 1px solid #eee;
-    height: 100%;
-}
-
-.header {
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    padding: 30rpx 0;
-}
-
-.date {
-    font-size: 40rpx;
-    display: block;
-    margin-bottom: 10rpx;
-}
-
-.blessing {
-    font-size: 26rpx;
+  padding: 20px;
+  border-top: 1px solid #eee;
 }
 
 .vol-swiper {
-    height: 900rpx;
+  height: 1000rpx;
+}
+
+.vol-swiper-item {
+  padding: 20rpx;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  position: relative;
 }
 
 .vol-card {
-    margin-top: 5px;
+  text-align: center;
+  height: 100%;
 }
 
 .vol-picture {
-    width: 100%;
-    height: 650rpx;
-}
-
-.vol-meta {
-    text-align: right;
-    border-bottom: 3px solid #ccc;
-    padding: 0 20px 20px;
+  width: 100%;
 }
 
 .vol-title {
-    display: block;
-    font-size: 36rpx;
+  font-size: 40rpx;
+  margin: 30rpx 0;
 }
 
 .vol-author {
-    font-size: 28rpx;
+  font-size: 32rpx;
 }
 
-.vol-favorite {
-    float: left;
-    margin-left: 100rpx;
-    margin-top: 30rpx;
+.vol-makettime {
+  font-size: 24rpx;
+  border-bottom: 1px solid #ccc;
+  padding: 50rpx 0;
 }
 
-.vol-share {
-    float: right;
-    margin-right: 100rpx;
-    margin-top: 30rpx;
+.vol-more {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #c1403d;
 }
-
-.vol-small-pic {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin: 0 20rpx;
-}
-
-.vol-number {
-    font-size: 16px;
-    line-height: 20px;
-    vertical-align: middle;
-}
-
-
-
-

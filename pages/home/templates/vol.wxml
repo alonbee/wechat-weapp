@@ -1,18 +1,17 @@
 <template name="vol">
-  <view class="vol-card">
-    <image class="vol-picture" src="{{item.imageSrc}}" mode="aspectFill"></image>
-    <view class="vol-meta">
-      <text class="vol-title">{{item.title}}</text>
-      <text class="vol-author">{{item.author}}</text>
+  <view class="vol-card" data-vol-id="{{item.hpcontent_id}}" catchtap="onDetailTap">
+    <image class="vol-picture" src="{{item.hp_img_url}}" mode="aspectFill"></image>
+    <view class="vol-title">
+      <text>{{item.hp_title}}</text>    
     </view>
-    <view id="{{idx}}" class="vol-favorite" bindtap="isFavorite">
-      <image wx:if="{{!item.isFavorite}}" class="vol-small-pic" src="/images/icon/favorite.png"></image>
-      <image wx:if="{{item.isFavorite}}" class="vol-small-pic" src="/images/icon/favorite_active.png"></image>    
-      <text class="vol-number">{{item.favoriteNumber}}</text>
+    <view class="vol-author">
+      <text>{{item.hp_author}}</text>
     </view>
-    <view class="vol-share">
-      <text class="vol-number">{{item.shareNumber}}</text>
-      <image class="vol-small-pic" src="/images/icon/share.png"></image>
+    <view class="vol-makettime">
+      <text>{{item.hp_makettime}}</text>
+    </view>
+    <view class="vol-more">
+      <text>more</text>
     </view>
   </view>
 </template>

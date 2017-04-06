@@ -1,14 +1,10 @@
 <!--pages/home/home.wxml-->
 <view class="container">
-    <view class="header">
-        <text class="date">{{good}} | {{time}}</text>
-        <text class="blessing">{{blessing}}</text>
-    </view>
-    <swiper class="vol-swiper" current="{{current}}" bindchange="changeHandle">
-        <block wx:for="{{vols}}" wx:for-index="idx">
+    <swiper class="vol-swiper" current="{{current}}">
+        <block wx:for="{{vols}}" wx:for-index="idx" wx:key="{{hpcontent_id}}">
             <swiper-item class="vol-swiper-item">
                 <import src="templates/vol.wxml" />
-                <template is="vol" data="{{item: item, idx: idx}}" />
+                <template is="vol" data="{{item: item, isDetail}}" />
             </swiper-item>
         </block>
     </swiper>

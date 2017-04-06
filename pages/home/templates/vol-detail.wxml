@@ -1,0 +1,15 @@
+<template name="vol-detail">
+  <image src="{{item.hp_img_url}}" class="vol-picture"></image>
+  <view class="vol-meta">
+    <text class="vol-author">{{item.hp_author}}</text>
+    <text class="vol-const">发表于</text>
+    <text class="vol-makettime">{{item.hp_makettime}}</text>
+  </view>
+  <text class="vol-title">{{item.hp_title}}</text>
+  <view class="vol-img">
+    <image src="/images/icon/share.png" class="vol-picture-small"></image>
+    <image wx:if="{{isFavorite}}" src="/images/icon/favorite_active.png" ></image>
+    <image wx:else src="/images/icon/favorite.png" ></image>
+  </view>
+  <text class="vol-content">{{item.hp_content}}</text>
+</template>
