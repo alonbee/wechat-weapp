@@ -7,10 +7,10 @@ Page({
     vols: [],
     current: 0
   },
-
+  // 页面加载
   onLoad: function (options) {
     var that = this;
-
+    // 取得vols列表id
     api.getVolIdList({
       success: function (res) {
         if (res.data.res === 0) {
@@ -20,7 +20,7 @@ Page({
       }
     });
   },
-
+  // 取得vols列表id对应的详细数据
   getVols: function (idList) {
     var that = this;
     var vols = this.data.vols;
@@ -43,7 +43,7 @@ Page({
       that.setData({ vols })
     }
   },
-
+  // 页面初次渲染完成
   onReady: function () {
     var title = '早安 | 午安 | 晚安';
     var hour = (new Date()).getHours();
@@ -57,17 +57,23 @@ Page({
     } else if (hour >= 0 && hour < 6) {
       title = '睡觉吧!'
     }
-
+    // 根据时间设置导航条标题
     wx.setNavigationBarTitle({
       title: title
     });
 
   },
-
-  onDetailTap: function(event) {
+  // 点击卡券整体跳转详情页
+  viewDetailTap: function(event) {
     var volId = event.currentTarget.dataset.volId;
     wx.navigateTo({
       url: 'detail/detail?id=' + volId 
+    });
+  },
+  // 点击卡券more跳转年月选择页面
+  viewMoreTap: function(event) {
+    wx.navigateTo({
+      url: '../history/history'
     });
   }
 

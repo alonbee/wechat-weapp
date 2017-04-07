@@ -41,14 +41,6 @@ Page({
     }
 
   },
-  // 设置导航条标题
-  onReady: function() {
-    var title = '- 图文 -'
-
-    wx.setNavigationBarTitle({
-      title: title
-    });
-  },
   // 点击收藏事件
   onFavoriteTap: function() {
     this.getVolsIsFavoriteAsy();

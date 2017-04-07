@@ -12,8 +12,6 @@ Page({
           nickName: res.userInfo.nickName,
           avatar: res.userInfo.avatarUrl
         });
-
-        console.log(res);
       },
       fail: function(res) {
         console.log('fail!');

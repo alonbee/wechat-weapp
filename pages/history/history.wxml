@@ -1,0 +1,11 @@
+<!--pages/history/history.wxml-->
+<view class="container">
+    <scroll-view scroll-y="true">
+        <block wx:for="{{dateList}}">
+            <view class="history-block" catchtap="viewMonthlyTap" data-date="{{item}}">
+                <text class="history-date">{{item}}</text>
+                <image class="history-forward" src="../../../images/icon/forward.png"></image>
+            </view>
+        </block>
+    </scroll-view>
+</view>

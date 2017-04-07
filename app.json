@@ -1,11 +1,13 @@
 {
   "pages": [
+    "pages/welcome/welcome",    
     "pages/home/home",
     "pages/home/detail/detail",
+    "pages/home/monthly/monthly",
     "pages/read/read",
     "pages/music/music",
     "pages/movie/movie",
-    "pages/welcome/welcome"    
+    "pages/history/history"
   ],
   "window": {
    "navigationBarBackgroundColor": "#fefefe",

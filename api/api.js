@@ -33,8 +33,8 @@ var getVolIdList = function (params) {
     wxRequest(params, perfix + 'hp/idlist/0');
 }
 
-var getVolsByMonth = function (params) {
-    wxRequest(params, perfix + 'hp/bymonth/' + params.query.month);
+var getVolsByDate = function (params) {
+    wxRequest(params, perfix + 'hp/bymonth/' + params.query.date);
 }
 
 var getVolDetailById = function (params) {
@@ -44,6 +44,6 @@ var getVolDetailById = function (params) {
 module.exports = {
     getVolById,
     getVolIdList,
-    getVolsByMonth,
+    getVolsByDate,
     getVolDetailById
 }
