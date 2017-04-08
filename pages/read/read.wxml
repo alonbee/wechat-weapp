@@ -1,4 +1,27 @@
+
 <!--pages/read/read.wxml-->
 <view class="container">
-    
+  <swiper class="carousel" indicator-dots="true" autoplay="true">
+    <block wx:for="{{carousel}}" wx:key="{{id}}">
+      <swiper-item data-carousel-id="{{item.id}}" catchtap="viewDetailTap">
+        <view class="carousel-item">
+          <image class="carousel-cover" src="{{item.cover}}" mode="scaleToFill"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <swiper class="articles" current="{{current}}">
+    <block wx:for="{{articles.essay}}" wx:for-index="idx" wx:key="{{content_id}}">
+      <swiper-item class="articles-item">
+        <view class="articles-card">
+          <import src="templates/essay.wxml" />
+          <template is="essay" data="{{item: articles['essay'][idx]}}" />
+          <import src="templates/serial.wxml" />
+          <template is="serial" data="{{item: articles['serial'][idx]}}" />
+          <import src="templates/question.wxml" />
+          <template is="question" data="{{item: articles['question'][idx]}}" />
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>

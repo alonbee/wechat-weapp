@@ -1,0 +1,10 @@
+<!--pages/read/carousel/carousel.wxml-->
+<view class="container">
+  <block wx:for="{{detail}}" wx:key="{{item_id}}">
+    <view class="content">
+      <text class="title">{{item.title}}</text>
+      <text class="author">{{item.author}}</text>
+      <text class="introduction">{{item.introduction}}</text>
+    </view>
+  </block>
+</view>

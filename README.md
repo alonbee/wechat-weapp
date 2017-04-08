@@ -1,4 +1,4 @@
-# wechat-webapp
+# wechat-weapp
 
 入坑小程序，仿各种文艺app集合于一身，感谢借鉴: [MONO]、[一个]、[片刻]、[柴扉]...等等。
 
