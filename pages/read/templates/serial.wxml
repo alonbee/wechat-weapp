@@ -1,5 +1,5 @@
 <template name="serial">
-  <view class="article-item">
+  <view class="article-item" data-serial-id="{{item.id}}" catchtap="viewSerialTap">
     <view class="article-header">
       <text class="article-title">{{item.title}}</text>
       <text class="article-type">连载</text>

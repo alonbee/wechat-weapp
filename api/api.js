@@ -55,6 +55,10 @@ var getLastArticles = function (params) {
     wxRequest(params, perfix + 'reading/index');
 }
 
+var getEssayById = function (params) {
+    wxRequest(params, perfix + 'essay/' + params.query.id);
+}
+
 module.exports = {
     getVolById,
     getVolIdList,
@@ -62,5 +66,6 @@ module.exports = {
     getVolDetailById,
     getCarouselList,
     getCarouselDetailById,
-    getLastArticles
+    getLastArticles,
+    getEssayById
 }

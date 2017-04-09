@@ -1,5 +1,5 @@
 <template name="essay">
-  <view class="article-item">
+  <view class="article-item" data-essay-id="{{item.content_id}}" catchtap="viewEssayDetailTap">
     <view class="article-header">
       <text class="article-title">{{item.hp_title}}</text>
       <text class="article-type">短篇</text>

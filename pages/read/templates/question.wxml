@@ -1,5 +1,5 @@
 <template name="question">
-  <view class="article-item">
+  <view class="article-item" data-question-id="{{item.question_id}}" catchtap="viewQuestionTap">
     <view class="article-header">
       <text class="article-title">{{item.question_title}}</text>
       <text class="article-type">问答</text>

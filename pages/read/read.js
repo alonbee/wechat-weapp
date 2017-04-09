@@ -37,5 +37,25 @@ Page({
       url: 'carousel/carousel?id=' + carouselId
     });
   },
-
+  // 短篇文章详情
+  viewEssayDetailTap: function (event) {
+    var essayId = event.currentTarget.dataset.essayId;
+    wx.navigateTo({
+      url: 'essay/essay?id=' + essayId
+    });
+  },
+  // 连载文章详情
+  viewSerialTap: function (event) {
+    var serialId = event.currentTarget.dataset.serialId;
+    wx.navigateTo({
+      url: 'serial/serial?id=' + serialId
+    });
+  },
+  // 问答文章详情
+  viewQuestionTap: function (event) {
+    var questionId = event.currentTarget.dataset.questionId;
+    wx.navigateTo({
+      url: 'question/question?id=' + questionId
+    });
+  }
 })
