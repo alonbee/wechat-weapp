@@ -1,19 +1,27 @@
 // pages/read/serial/serial.js
+var api = require('../../../api/api.js');
+var util = require('../../../util/util.js');
+
 Page({
-  data:{},
+  data:{
+    serial: {}
+  },
+  // 页面加载
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-  },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
+    var that = this;
+
+    api.getSerialById({
+      query: {
+        id: options.id
+      },
+      success: function(res) {
+        if (res.data.res === 0) {
+          var serial = res.data.data;
+          serial.content = util.filterContent(serial.content);
+          serial.maketime = util.formatMakettime(serial.maketime);
+          that.setData({ serial })
+        }
+      }
+    });
   }
 })

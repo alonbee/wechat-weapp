@@ -1,1 +1,44 @@
 /* pages/read/serial/serial.wxss */
+.container {
+    padding: 15px 10px;    
+    border-top: 1px solid #eee;
+}
+
+.serial-author {
+    display: inline-block;
+    width: 80%;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.serial-author-avatar {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 25rpx;
+    border-radius: 50%;
+}
+
+.serail-author-username {
+    padding:3px 0 5px 0;
+    color: #89bdf7;
+}
+
+.serail-author-makettime {
+    color: #888;
+}
+
+.serail-title {
+    margin: 40rpx 0 0;
+}
+
+.serail-content {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.serial-charge-edt {
+    margin-top: 20px;
+    color: #888;
+    font-size: 12px;
+}

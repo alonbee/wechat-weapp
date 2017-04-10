@@ -59,6 +59,14 @@ var getEssayById = function (params) {
     wxRequest(params, perfix + 'essay/' + params.query.id);
 }
 
+var getSerialById = function (params) {
+    wxRequest(params, perfix + 'serialcontent/' + params.query.id);
+}
+
+var getQuestionById = function (params) {
+    wxRequest(params, perfix + 'question/' + params.query.id);
+}
+
 module.exports = {
     getVolById,
     getVolIdList,
@@ -67,5 +75,7 @@ module.exports = {
     getCarouselList,
     getCarouselDetailById,
     getLastArticles,
-    getEssayById
+    getEssayById,
+    getSerialById,
+    getQuestionById
 }
