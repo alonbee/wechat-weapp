@@ -1,0 +1,15 @@
+<!--pages/read/monthly/monthly.wxml-->
+<view class="container">
+    <block wx:if="{{articleType === 'essay'}}" wx:for="{{articles}}" wx:key="content_id">
+        <import src="../templates/essay.wxml" />
+        <template is="essay" data="{{item: item}}"/>
+    </block>
+    <block wx:if="{{articleType === 'serialcontent'}}" wx:for="{{articles}}" wx:key="id">
+        <import src="../templates/serial.wxml" />
+        <template is="serial" data="{{item: item}}"/>
+    </block>
+    <block wx:if="{{articleType === 'question'}}" wx:for="{{articles}}" wx:key="question_id">
+        <import src="../templates/question.wxml" />
+        <template is="question" data="{{item: item}}"/>
+    </block>
+</view>

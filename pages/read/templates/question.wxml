@@ -2,7 +2,7 @@
   <view class="article-item" data-question-id="{{item.question_id}}" catchtap="viewQuestionTap">
     <view class="article-header">
       <text class="article-title">{{item.question_title}}</text>
-      <text class="article-type">问答</text>
+      <text class="article-type" catchtap="viewMoreTap" data-article-type="question">问答</text>
       <view class="article-author">
         <text>{{item.answer_title}}</text>
       </view>

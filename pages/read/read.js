@@ -57,5 +57,13 @@ Page({
     wx.navigateTo({
       url: 'question/question?id=' + questionId
     });
+  },
+  // 点击more跳转年月选择页面
+  viewMoreTap: function (event) {
+    var articleType = event.currentTarget.dataset.articleType;
+
+    wx.navigateTo({
+      url: '../history/history?page=read&articleType=' + articleType
+    });
   }
 })

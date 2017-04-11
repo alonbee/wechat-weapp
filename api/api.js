@@ -67,6 +67,10 @@ var getQuestionById = function (params) {
     wxRequest(params, perfix + 'question/' + params.query.id);
 }
 
+var getArticlesByDate = function (params) {
+    wxRequest(params, perfix + params.query.type + '/bymonth/' + params.query.date);
+}
+
 module.exports = {
     getVolById,
     getVolIdList,
@@ -77,5 +81,6 @@ module.exports = {
     getLastArticles,
     getEssayById,
     getSerialById,
-    getQuestionById
+    getQuestionById,
+    getArticlesByDate
 }

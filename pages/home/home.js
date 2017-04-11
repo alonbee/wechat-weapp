@@ -73,7 +73,7 @@ Page({
   // 点击卡券more跳转年月选择页面
   viewMoreTap: function(event) {
     wx.navigateTo({
-      url: '../history/history'
+      url: '../history/history?page=home'
     });
   }
 

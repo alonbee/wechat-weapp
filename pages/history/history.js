@@ -17,7 +17,12 @@ Page({
   },
   // 页面加载
   onLoad:function(options){
-    
+    var page = options.page;
+    var articleType = options.articleType;
+    this.setData({
+      page: page,
+      articleType: articleType
+    });
   },
 
   // 点击月份跳转内容
@@ -26,8 +31,18 @@ Page({
     var year = date.split('-')[0];
     var month = date.split('-')[1];
 
+    var page = this.data.page;
+    var articleType = this.data.articleType;
+    var url = '';
+
+    if (page === 'home') {
+      url = '../home/monthly/monthly?year=' + year + '&month=' + month;
+    } else if (page === 'read') {
+      url = '../read/monthly/monthly?type=' + articleType + '&year=' + year + '&month=' + month;
+    }
+
     wx.navigateTo({
-      url: '../home/monthly/monthly?year='+ year + '&month=' + month
+      url: url
     });
   }
 
