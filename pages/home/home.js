@@ -4,77 +4,69 @@ var util = require('../../util/util.js');
 
 Page({
   data: {
-    vols: [],
+    hps: [],
     current: 0
   },
   // 页面加载
   onLoad: function (options) {
-    var that = this;
     // 取得vols列表id
-    api.getVolIdList({
-      success: function (res) {
+    api.getHpIdList({
+      success: (res) => {
         if (res.data.res === 0) {
-          var idList = res.data.data;
-          that.getVols(idList);
+          let idList = res.data.data;
+          this.getHps(idList);
         }
       }
     });
   },
   // 取得vols列表id对应的详细数据
-  getVols: function (idList) {
-    var that = this;
-    var vols = this.data.vols;
+  getHps: function (idList) {
+    let hps = this.data.hps;
 
     if (idList.length > 0) {
-      api.getVolById({
+      api.getHpDetailById({
         query: {
           id: idList.shift()
         },
-        success: function (res) {
+        success: (res) => {
           if (res.data.res === 0) {
-            var vol = res.data.data;
-            vol.hp_makettime = util.formatMakettime(vol.hp_makettime)
-            vols.push(vol);
+            let hp = res.data.data;
+            hp.hp_makettime = util.formatHpMakettime(hp.hp_makettime);
+            hp.hp_author = util.formatHpAuthor(hp.hp_author);
+            hp.hp_content = util.formatHpContent(hp.hp_content);
+            hps.push(hp);
           }
-          that.getVols(idList);
+          this.getHps(idList);
         }
       });
     } else {
-      that.setData({ vols })
+      this.setData({ hps });
     }
   },
-  // 页面初次渲染完成
-  onReady: function () {
-    var title = '早安 | 午安 | 晚安';
-    var hour = (new Date()).getHours();
+  // 小记跳转详情
+  viewDetailTap: function (event) {
+    let hpId = event.currentTarget.dataset.hpId;
+    wx.navigateTo({
+      url: 'detail/detail?id=' + hpId 
+    });
+  },
+  // 滑动卡片到最后一张跳转历史
+  handleChange: function (event) {
+    let current = event.detail.current;
+    let hpsLength = this.data.hps.length;
 
-    if (hour >= 6 && hour <= 9) {
-      title = '早安'
-    } else if (hour >= 11 && hour <= 13) {
-      title = '午安'
-    } else if (hour >= 21 && hour < 24) {
-      title = '晚安'
-    } else if (hour >= 0 && hour < 6) {
-      title = '睡觉吧!'
+    if (current === hpsLength) {
+      this.setData({
+        current: hpsLength
+      });
+      wx.navigateTo({
+        url: '../history/history',
+        success: function(res){
+          this.setData({
+            current: hpsLength - 1
+          });
+        }
+      });
     }
-    // 根据时间设置导航条标题
-    wx.setNavigationBarTitle({
-      title: title
-    });
-
-  },
-  // 点击卡券整体跳转详情页
-  viewDetailTap: function(event) {
-    var volId = event.currentTarget.dataset.volId;
-    wx.navigateTo({
-      url: 'detail/detail?id=' + volId 
-    });
-  },
-  // 点击卡券more跳转年月选择页面
-  viewMoreTap: function(event) {
-    wx.navigateTo({
-      url: '../history/history?page=home'
-    });
   }
-
 })

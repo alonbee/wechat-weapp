@@ -1,10 +1,8 @@
-var perfix = "http://v3.wufazhuce.com:8000/api/";
-
-var wxRequest = function (params, url) {
+const perfix = "http://v3.wufazhuce.com:8000/api/";
+const wxRequest = (params, url) => {
     wx.showLoading({
         title: "Loading...",
     });
-
     wx.request({
         url: url,
         data: params.data || '',
@@ -12,75 +10,62 @@ var wxRequest = function (params, url) {
             'content-type': 'application/json'
         },
         method: params.method || 'GET',
-        success: function (res) {
+        success: (res) => {
             params.success && params.success(res);
             wx.hideLoading();
         },
-        fail: function (res) {
-
+        fail: (res) => {
+            params.fail && params.fail(res);
         },
-        complete: function (res) {
-
+        complete: (res) => {
+            params.complete && params.complete(res);
         }
     });
 }
 
 // home
-var getVolById = function (params) {
-    wxRequest(params, perfix + 'hp/detail/' + params.query.id);
-}
-
-var getVolIdList = function (params) {
-    wxRequest(params, perfix + 'hp/idlist/0');
-}
-
-var getVolsByDate = function (params) {
-    wxRequest(params, perfix + 'hp/bymonth/' + params.query.date);
-}
-
-var getVolDetailById = function (params) {
-    wxRequest(params, perfix + 'hp/detail/' + params.query.id);
-}
+const getHpIdList = (params) => wxRequest(params, perfix + 'hp/idlist/0');
+const getHpDetailById = (params) => wxRequest(params, perfix + 'hp/detail/' + params.query.id);
+const getHpByMonth = (params) => wxRequest(params, perfix + 'hp/bymonth/' + params.query.year + '-' + params.query.month);
 
 // read
-var getCarouselList = function (params) {
-    wxRequest(params, perfix + 'reading/carousel');
-}
+const getReadingCarousel = (params) => wxRequest(params, perfix + 'reading/carousel');
+const getReadingCarouselById = (params) => wxRequest(params, perfix + 'reading/carousel/' + params.query.id);
+const getReadingIndex = (params) => wxRequest(params, perfix + 'reading/index');
+const getEssayById = (params) => wxRequest(params, perfix + 'essay/' + params.query.id);
+const getSerialById = (params) => wxRequest(params, + perfix + 'serialcontent/' + parmas.query.id);
+const getQuestionById = (parmas) => wxRequest(parmas, perfix + 'question/' + parmas.query.id);
+const getArticleByMonth = (params) => wxRequest(params, perfix + params.query.type + '/bymonth' + params.query.year + '-' + parmas.query.month);
 
-var getCarouselDetailById = function (params) {
-    wxRequest(params, perfix + 'reading/carousel/' + params.query.id);
-}
+// music
+const getMusicIdList = (parmas) => wxRequest(parmas, perfix + 'music/idlist/0');
+const getMuiscById = (parmas) => wxRequest(parmas, perfix + 'music/detail/' + parmas.query.id);
+const getMusicByMonth = (parmas) => wxRequest(parmas, perfix + 'music/bymonth' + params.query.year + '-' + parmas.query.month);
 
-var getLastArticles = function (params) {
-    wxRequest(params, perfix + 'reading/index');
-}
+// movie
+const getMovieList = (parmas) => wxRequest(parmas, perfix + 'movie/list/0');
+const getMovieById = (parmas) => wxRequest(parmas, perfix + 'movie/detail/' + params.query.id);
+const getMovieStoryById = (parmas) => wxRequest(parmas, perfix + 'movie/' + parmas.query.id + '/story/1/0');
 
-var getEssayById = function (params) {
-    wxRequest(params, perfix + 'essay/' + params.query.id);
-}
-
-var getSerialById = function (params) {
-    wxRequest(params, perfix + 'serialcontent/' + params.query.id);
-}
-
-var getQuestionById = function (params) {
-    wxRequest(params, perfix + 'question/' + params.query.id);
-}
-
-var getArticlesByDate = function (params) {
-    wxRequest(params, perfix + params.query.type + '/bymonth/' + params.query.date);
-}
+//comment
+const getCommentList = (params) => wxRequest(params, perfix + 'comment/praiseandtime' + params.query.type + '/' + params.query.id + '/' + params.query.index);
 
 module.exports = {
-    getVolById,
-    getVolIdList,
-    getVolsByDate,
-    getVolDetailById,
-    getCarouselList,
-    getCarouselDetailById,
-    getLastArticles,
+    getHpIdList,
+    getHpDetailById,
+    getHpByMonth,
+    getReadingCarousel,
+    getReadingCarouselById,
+    getReadingIndex,
     getEssayById,
     getSerialById,
     getQuestionById,
-    getArticlesByDate
+    getArticleByMonth,
+    getMusicIdList,
+    getMuiscById,
+    getMusicByMonth,
+    getMovieList,
+    getMovieById,
+    getMovieStoryById,
+    getCommentList
 }

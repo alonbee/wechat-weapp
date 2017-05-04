@@ -1,5 +1,13 @@
-var formatMakettime = function (dataString) {
-    return (new Date(dataString).toString().split(' ', 4).slice(1, 4).join(' '));
+const formatHpMakettime = (dateString) => {
+    return dateString.split(' ')[0].replace(/\-/g, '  /  ');
+}
+
+const formatHpAuthor = (authorString) => {
+    return authorString.split(' ')[0].replace(/\＆/, ' | ');
+}
+
+const formatHpContent = (contentString) => {
+    return contentString.split(' ')[0];
 }
 
 var filterContent = function (string) {
@@ -7,6 +15,8 @@ var filterContent = function (string) {
 }
 
 module.exports = {
-    formatMakettime,
+    formatHpMakettime,
+    formatHpAuthor,
+    formatHpContent,
     filterContent
 }

@@ -1,4 +1,11 @@
 <!--pages/music/music.wxml-->
 <view class="container">
-    
+    <swiper class="musics-swiper">
+        <block wx:for="{{musics}}" wx:key="id" wx:for-index="idx">
+            <swiper-item class="music-swiper-item">
+                <import src="templates/music.wxml" />
+                <template is="music" data="{{item: item}}" />   
+            </swiper-item>
+        </block>
+    </swiper>
 </view>

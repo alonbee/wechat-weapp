@@ -2,4 +2,63 @@
 .container {
     padding: 0 10px;
     border-top: 1px solid #eee;
+    height: 100%;
+}
+
+.musics-swiper {
+    height: 100%;
+}
+
+.music {
+    height: 100%;
+    width: calc(100% + 30rpx);
+}
+
+.music-container {
+    margin-right: 30rpx;
+}
+
+.music-cover {
+    width: 100%;
+}
+
+.music-cover-image {
+    width: 100%;
+    height: 750rpx;
+}
+
+.music-control {
+    position: relative;    
+    margin: 0 20rpx;
+    padding: 15rpx 20rpx 8rpx 15rpx;
+    top: -20px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #ebebeb;
+}
+
+.music-author {
+    display: inline-block;
+    width: 80%;
+    margin-bottom: 25px;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.music-author-avatar {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 15rpx;
+    border-radius: 50%;
+}
+
+.music-author-username {
+    padding: 5px;
+    color: #89bdf7;
+}
+
+.music-author-desc {
+    float: right;
 }
