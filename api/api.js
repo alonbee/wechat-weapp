@@ -50,6 +50,9 @@ const getMovieStoryById = (parmas) => wxRequest(parmas, perfix + 'movie/' + parm
 //comment
 const getCommentList = (params) => wxRequest(params, perfix + 'comment/praiseandtime' + params.query.type + '/' + params.query.id + '/' + params.query.index);
 
+// address
+const getAddress = (params) => wxRequest(params, 'http://apis.map.qq.com/ws/location/v1/ip?key=' + params.query.key);
+
 module.exports = {
     getHpIdList,
     getHpDetailById,
@@ -67,5 +70,6 @@ module.exports = {
     getMovieList,
     getMovieById,
     getMovieStoryById,
-    getCommentList
+    getCommentList,
+    getAddress
 }
