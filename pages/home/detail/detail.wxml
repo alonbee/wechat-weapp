@@ -1,19 +1,19 @@
 <!--pages/home/detail/detail.wxml-->
 <view class="container">
-  <image src="{{detail.hp_img_url}}" class="vol-picture"></image>
-  <view class="vol-meta">
-    <text class="vol-author">{{detail.hp_author}}</text>
-    <text class="vol-const">发表于</text>
-    <text class="vol-makettime">{{detail.hp_makettime}}</text>
+  <view class="header">
+    <text class="time">{{detail.hp_makettime}}</text>
+    <text class="address">对流层,Harbin</text>
   </view>
-  <text class="vol-title">{{detail.hp_title}}</text>
-  <view class="vol-tool">
-    <view class="vol-img">
-      <image wx:if="{{isFavorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap"></image>
-      <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap"></image>
-      <image src="/images/icon/share.png" class="vol-picture-small" catchtap="onShareTap"></image>
-    </view>
-    <view class="vol-horizon"></view>
+  <view class="picture">
+    <image src="{{detail.hp_img_url}}"></image>
   </view>
-  <text class="vol-content">{{detail.hp_content}}</text>
+  <view class="author">
+    <text>{{detail.hp_author}}</text>
+  </view>
+  <view class="content">
+    <text>{{detail.hp_content}}</text>
+  </view>
+  <view class="text-authors">
+    <text>{{detail.text_authors}}</text>
+  </view>
 </view>
