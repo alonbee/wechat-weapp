@@ -1,6 +1,6 @@
 // pages/home/home.js
-var api = require('../../api/api.js');
-var util = require('../../util/util.js');
+let api = require('../../api/api.js');
+let util = require('../../util/util.js');
 
 Page({
   data: {

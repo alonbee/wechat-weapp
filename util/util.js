@@ -1,3 +1,8 @@
+const HP_AND_READING_BEGIN_TIME = '2012-10';
+const MUSIC_BEGIN_TIME = '2016-01';
+const MONTH_MAP = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+                   'Jul.', 'Aug.', 'Sep.', 'Otc.', 'Nov.', 'Dec.'];
+
 const formatHpMakettime = (dateString) => {
     return dateString.split(' ')[0].replace(/\-/g, '  /  ');
 }
@@ -10,13 +15,46 @@ const formatHpContent = (contentString) => {
     return contentString.split(' ')[0];
 }
 
-var filterContent = function (string) {
+const filterContent = function (string) {
     return string.replace(/[\r\n]/g, "").replace(/<.*?>/g, "\n");
+}
+
+const getBeginTime = (type) => {
+    let beginTime = type === 'music'? MUSIC_BEGIN_TIME : HP_AND_READING_BEGIN_TIME;
+    return new Date(beginTime);
+}
+
+const getDateList = (type) => {
+    let begin = getBeginTime(type);
+    let beginYear = begin.getFullYear();
+    let beginMonth = begin.getMonth();
+
+    let now = new Date();
+    let nowYear = now.getFullYear();
+    let nowMonth = now.getMonth();
+
+    let dateList = [];
+    for (let year = nowYear; year >= beginYear; year--) {
+        for (let month = 11; month >=0; month--) {
+            dateList.push({
+                title: MONTH_MAP[month] + year,
+                value: year + '-' + (month + 1)
+            });
+        }
+    }
+
+    dateList = dateList.slice(11 - nowMonth + 1, dateList.length - beginMonth);
+    dateList.splice(0, 0, {
+        title: '本月',
+        value: nowYear + '-' + (nowMonth + 1)
+    });
+    return dateList;
 }
 
 module.exports = {
     formatHpMakettime,
     formatHpAuthor,
     formatHpContent,
-    filterContent
+    filterContent,
+    getDateList
 }

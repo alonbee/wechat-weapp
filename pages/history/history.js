@@ -1,49 +1,110 @@
 // pages/history/history.js
+let util = require('../../util/util.js');
+
 Page({
   data:{
-    dateList: [
-      "2017-04",
-      "2017-03",
-      "2017-02",
-      "2017-01",
-      "2016-12",
-      "2016-11",
-      "2016-10",
-      "2016-09",
-      "2016-08",
-      "2016-07",
-      "2016-06"
-    ]
+    nav: {
+      hp: true,
+      essay: false,
+      serial: false,
+      question: false,
+      music: false
+    },
+    dateList: [],
+    type: 'hp',
+    page: 'home'
   },
   // 页面加载
   onLoad:function(options){
-    var page = options.page;
-    var articleType = options.articleType;
+    let dateList = util.getDateList('hp');
     this.setData({
-      page: page,
-      articleType: articleType
+      dateList
     });
   },
-
-  // 点击月份跳转内容
-  viewMonthlyTap: function(event) {
-    var date = event.currentTarget.dataset.date;
-    var year = date.split('-')[0];
-    var month = date.split('-')[1];
-
-    var page = this.data.page;
-    var articleType = this.data.articleType;
-    var url = '';
-
-    if (page === 'home') {
-      url = '../home/monthly/monthly?year=' + year + '&month=' + month;
-    } else if (page === 'read') {
-      url = '../read/monthly/monthly?type=' + articleType + '&year=' + year + '&month=' + month;
+  // 菜单选择
+  // 图文
+  chooseHp: function () {
+    let nav = this.data.nav;
+    for (let key in nav) {
+      nav[key] = false;
     }
+    nav['hp'] = true;
+    let dateList = util.getDateList('hp');    
+    this.setData({ 
+      dateList,
+      nav,
+      type: 'hp',
+      page: 'home'
+     });
+  },
+  // 阅读
+  chooseEssay: function () {
+    let nav = this.data.nav;
+    for (let key in nav) {
+      nav[key] = false;
+    }
+    nav['essay'] = true;
+    let dateList = util.getDateList('essay');    
+    this.setData({ 
+      dateList,
+      nav,
+      type: 'essay',
+      page: 'read'
+     });
+  },
+  // 连载
+  chooseSerial: function () {
+    let nav = this.data.nav;
+    for (let key in nav) {
+      nav[key] = false;
+    }
+    nav['serial'] = true;
+    let dateList = util.getDateList('serial');    
+    this.setData({ 
+      dateList,
+      nav,
+      type: 'serial',
+      page: 'read'      
+     });
+  },
+  // 问答
+  chooseQuestion: function () {
+    let nav = this.data.nav;
+    for (let key in nav) {
+      nav[key] = false;
+    }
+    nav['question'] = true;
+    let dateList = util.getDateList('question');    
+    this.setData({ 
+      dateList,
+      nav,
+      type: 'question',
+      page: 'read'    
+     });
+  },
+  // 音乐
+  chooseMusic: function () {
+    let nav = this.data.nav;
+    for (let key in nav) {
+      nav[key] = false;
+    }
+    nav['music'] = true;
+    let dateList = util.getDateList('music');
+    this.setData({
+      dateList,
+      nav,
+      type: 'music',
+      page: 'music'      
+    });
+  },
+  // 根据日期跳转相应的年份页面
+  viewMonthlyTap: function (event) {
+    let month = event.currentTarget.dataset.month;
+    let type = this.data.type;
+    let page = this.data.page;
 
     wx.navigateTo({
-      url: url
+      url: `../${page}/monthly/monthly?month=${month}&type=${type}`
     });
   }
-
 })
