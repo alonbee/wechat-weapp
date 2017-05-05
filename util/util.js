@@ -63,6 +63,13 @@ const formatHpListTime = (dateString) => {
     return dateArr[1] + ' ' + dateArr[0] + '.' + dateArr[2];
 }
 
+const formatEssayTime = (dataString) => {
+    let date = new Date(dataString);
+    let now = new Date();
+    let val = Math.floor((now - date) / (1000 * 60 * 60));
+    return val;
+}
+
 module.exports = {
     formatHpMakettime,
     formatHpAuthor,
@@ -70,5 +77,6 @@ module.exports = {
     filterContent,
     getDateList,
     formatHpsTitle,
-    formatHpListTime
+    formatHpListTime,
+    formatEssayTime
 }

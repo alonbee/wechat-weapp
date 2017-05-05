@@ -1,14 +1,30 @@
 <template name="serial">
-  <view class="article-item" data-serial-id="{{item.id}}" catchtap="viewSerialTap">
-    <view class="article-header">
-      <text class="article-title">{{item.title}}</text>
-      <text class="article-type" catchtap="viewMoreTap" data-article-type="serialcontent">连载</text>
-      <view class="article-author">
-        <text>{{item.author.user_name}}</text>
-      </view>
+  <view class="article">
+    <view class="header">
+      <text>- STORY -</text>
     </view>
-    <view class="article-content">
+    <view class="title">
+      <text>{{item.title}}</text>    
+    </view>
+    <view class="author">
+      <text>{{item.author.user_name}}</text>
+    </view>
+    <view class="picture">
+      <image src="{{item.author.web_url}}" mode="aspectFill"></image>
+    </view>
+    <view class="content">
       <text>{{item.excerpt}}</text>
     </view>
+    <view class="info clearfix">
+      <view class="time">
+        <text>{{item.maketime}}小时前</text>
+      </view>
+      <view class="fav-share">
+        <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+        <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+        <image class="share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
+      </view>
+    </view>
   </view>
+  <view class="footer"></view>  
 </template>

@@ -1,5 +1,6 @@
 // pages/read/read.js
-var api = require('../../api/api.js');
+let api = require('../../api/api.js');
+let util = require('../../util/util.js');
 
 Page({
   data: {
@@ -9,61 +10,40 @@ Page({
   },
   // 页面加载
   onLoad: function (options) {
-    var that = this;
-    // 滑动图片数据
-    api.getCarouselList({
-      success: function (res) {
+    api.getReadingCarousel({
+      success:  (res) => {
         if (res.data.res === 0) {
-          var carousel = res.data.data;
-          that.setData({ carousel });
-        }
-      }
-    });
-    // 文章列表数据
-    api.getLastArticles({
-      success: function (res) {
-        if (res.data.res === 0) {
-          var articles = res.data.data;
-          that.setData({ articles })
+          let carousel = res.data.data;
+          this.setData({ carousel });
         }
       }
     });
 
+    api.getReadingIndex({
+      success: (res) => {
+        if (res.data.res === 0) {
+          let articles = res.data.data;
+
+          articles.essay.map((essay) => {
+            essay.hp_makettime = util.formatEssayTime(essay.hp_makettime);
+          });
+          articles.serial.map((serial) => {
+            serial.maketime = util.formatEssayTime(serial.maketime);
+          });
+          articles.question.map((question) => {
+            question.question_makettime = util.formatEssayTime(question.question_makettime);
+          });
+          this.setData({ articles });
+          console.log(articles);
+        } 
+      }
+    });
   },
   // 滑块页面详情
-  viewDetailTap: function (event) {
-    var carouselId = event.currentTarget.dataset.carouselId;
+  viewCarouselDetailTap: function (event) {
+    let carouselId = event.currentTarget.dataset.carouselId;
     wx.navigateTo({
       url: 'carousel/carousel?id=' + carouselId
-    });
-  },
-  // 短篇文章详情
-  viewEssayDetailTap: function (event) {
-    var essayId = event.currentTarget.dataset.essayId;
-    wx.navigateTo({
-      url: 'essay/essay?id=' + essayId
-    });
-  },
-  // 连载文章详情
-  viewSerialTap: function (event) {
-    var serialId = event.currentTarget.dataset.serialId;
-    wx.navigateTo({
-      url: 'serial/serial?id=' + serialId
-    });
-  },
-  // 问答文章详情
-  viewQuestionTap: function (event) {
-    var questionId = event.currentTarget.dataset.questionId;
-    wx.navigateTo({
-      url: 'question/question?id=' + questionId
-    });
-  },
-  // 点击more跳转年月选择页面
-  viewMoreTap: function (event) {
-    var articleType = event.currentTarget.dataset.articleType;
-
-    wx.navigateTo({
-      url: '../history/history?page=read&articleType=' + articleType
     });
   }
 })

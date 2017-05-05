@@ -1,14 +1,30 @@
 <template name="question">
-  <view class="article-item" data-question-id="{{item.question_id}}" catchtap="viewQuestionTap">
-    <view class="article-header">
-      <text class="article-title">{{item.question_title}}</text>
-      <text class="article-type" catchtap="viewMoreTap" data-article-type="question">问答</text>
-      <view class="article-author">
-        <text>{{item.answer_title}}</text>
-      </view>
+  <view class="article">
+    <view class="header">
+      <text>- 阅读 -</text>
     </view>
-    <view class="article-content">
+    <view class="title">
+      <text>{{item.question_title}}</text>    
+    </view>
+    <view class="author">
+      <text>{{item.author_list[0].user_name}}</text>
+    </view>
+    <view class="picture">
+      <image src="{{item.author_list[0].web_url}}" mode="aspectFill"></image>
+    </view>
+    <view class="content">
       <text>{{item.answer_content}}</text>
     </view>
+    <view class="info clearfix">
+      <view class="time">
+        <text>{{item.question_makettime}}小时前</text>
+      </view>
+      <view class="fav-share">
+        <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+        <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+        <image class="share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
+      </view>
+    </view>
   </view>
+  <view class="footer"></view>  
 </template>

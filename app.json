@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/welcome/welcome",        
+    "pages/read/read",              
+    "pages/welcome/welcome",      
     "pages/home/home",
     "pages/home/detail/detail",
     "pages/home/monthly/monthly",
-    "pages/read/read",    
     "pages/read/carousel/carousel",
     "pages/read/essay/essay",
     "pages/read/serial/serial",
@@ -15,7 +15,7 @@
     "pages/history/history"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#fefefe",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "听青湛",
     "backgroundColor": "#fefefe",

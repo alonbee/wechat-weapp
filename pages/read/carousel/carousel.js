@@ -1,23 +1,21 @@
 // pages/read/carousel/carousel.js
-var api = require('../../../api/api.js');
+let api = require('../../../api/api.js');
 
 Page({
   data:{
     detail: []
   },
   // 页面加载
-  onLoad:function(options){
-    var that = this;
-    var id = options.id;
-
-    api.getCarouselDetailById({
+  onLoad: function (options) {
+    api.getReadingCarouselById({
       query: {
-        id: id
+        id: options.id
       },
-      success: function(res) {
+      success: (res) => {
         if (res.data.res === 0) {
-          var detail = res.data.data;
-          that.setData({ detail })
+          let detail = res.data.data;
+          this.setData({ detail })
+          console.log(detail);        
         }
       }
     });
