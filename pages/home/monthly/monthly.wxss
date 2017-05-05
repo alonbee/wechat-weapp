@@ -1,32 +1,36 @@
 /* pages/home/monthly/monthly.wxss */
-
 .container {
-  border-top: 1px solid #eee;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    border-top: 1px solid #cccccc;
 }
 
-.vol-card {
-    width: 50%;
-    padding: 10rpx;
+.card {
     display: inline-block;
-    box-sizing: border-box;
+    width: calc(50% - 24rpx);
+    height: 394rpx;
+    margin: 0 12rpx 24rpx;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.vol-header {
+.header {
+    position: relative;    
     width: 100%;
-    height: 300rpx;
-    position: relative;
+    height: 292rpx;
 }
 
-.vol-cover {
+.pic-cover {
     width: 100%;
-    height: 300rpx;
+    height: 100%;
 }
 
-.vol-meta {
-    width: 100%;
+.meta {
     position: absolute;
-    bottom: 0;
-    padding: 3px 5px;
+    bottom: 0;    
+    width: 100%;
+    height: 30rpx;
+    line-height: 30rpx;
     color: #fefefe;
     font-size: 20rpx;
     font-weight: 200;
@@ -34,11 +38,20 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.vol-desc {
+.title {
+    margin-left: 12rpx;
+}
+
+.date {
+    float: right;
+    margin-right: 12rpx;
+}
+
+.desc {
     padding: 5px 3px;
 }
 
-.vol-content {
+.content {
     font-size: 12px;
     display: -webkit-box;
     -webkit-box-orient: vertical;

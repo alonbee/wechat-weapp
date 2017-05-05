@@ -26,7 +26,7 @@ const wxRequest = (params, url) => {
 // home
 const getHpIdList = (params) => wxRequest(params, perfix + 'hp/idlist/0');
 const getHpDetailById = (params) => wxRequest(params, perfix + 'hp/detail/' + params.query.id);
-const getHpByMonth = (params) => wxRequest(params, perfix + 'hp/bymonth/' + params.query.year + '-' + params.query.month);
+const getHpByMonth = (params) => wxRequest(params, perfix + 'hp/bymonth/' + params.query.month);
 
 // read
 const getReadingCarousel = (params) => wxRequest(params, perfix + 'reading/carousel');

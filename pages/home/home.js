@@ -71,7 +71,7 @@ Page({
       });
       wx.navigateTo({
         url: '../history/history',
-        success: function(res){
+        success: (res) => {
           this.setData({
             current: hpsLength - 1
           });

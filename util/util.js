@@ -51,10 +51,24 @@ const getDateList = (type) => {
     return dateList;
 }
 
+const formatHpsTitle = () => {
+    let now = new Date();
+    let nowYear = now.getFullYear();
+    let nowMonth = now.getMonth();
+    return MONTH_MAP[nowMonth] + nowYear;
+}
+
+const formatHpListTime = (dateString) => {
+    let dateArr = (new Date(dateString)).toString().split(' ', 4).slice(1, 4);
+    return dateArr[1] + ' ' + dateArr[0] + '.' + dateArr[2];
+}
+
 module.exports = {
     formatHpMakettime,
     formatHpAuthor,
     formatHpContent,
     filterContent,
-    getDateList
+    getDateList,
+    formatHpsTitle,
+    formatHpListTime
 }

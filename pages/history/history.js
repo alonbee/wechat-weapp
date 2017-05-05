@@ -100,11 +100,12 @@ Page({
   // 根据日期跳转相应的年份页面
   viewMonthlyTap: function (event) {
     let month = event.currentTarget.dataset.month;
+    let title = event.currentTarget.dataset.title;
     let type = this.data.type;
     let page = this.data.page;
 
     wx.navigateTo({
-      url: `../${page}/monthly/monthly?month=${month}&type=${type}`
+      url: `../${page}/monthly/monthly?month=${month}&title=${title}&type=${type}`
     });
   }
 })
