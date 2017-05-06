@@ -1,5 +1,5 @@
 <template name="question">
-  <view class="article">
+  <view class="article" data-id="{{item.question_id}}" bindtap="viewQuestionTap">
     <view class="header">
       <text>- 阅读 -</text>
     </view>

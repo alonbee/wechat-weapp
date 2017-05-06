@@ -1,5 +1,5 @@
 <template name="serial">
-  <view class="article">
+  <view class="article" data-id="{{item.id}}" bindtap="viewSerialTap">
     <view class="header">
       <text>- STORY -</text>
     </view>

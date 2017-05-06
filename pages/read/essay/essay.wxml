@@ -1,25 +1,42 @@
 <!--pages/read/essay/essay.wxml-->
 <view class="container">
-  <view class="essay-header">
-    <view class="essay-author">
-      <image class="essay-author-avatar" src="{{essay.author[0].web_url}}"></image>
-      <view class="essay-author-username">
-        <text>{{essay.author[0].user_name}}</text>
-      </view>
-      <view class="essay-makettime">
-        <text>{{essay.hp_makettime}}</text>
-      </view>
+  <view class="title">
+    <text>{{essay.hp_title}}</text>    
+  </view>
+  <view class="split"></view>
+  <view class="author">
+    <text>文 / {{essay.author[0].user_name}}</text>
+  </view>
+  <view class="content">
+    <text>{{essay.hp_content}}</text>
+  </view>
+  <view class="author-introduce">
+    <text>{{essay.hp_author_introduce}}</text>
+  </view>
+  <text class="text">作者</text>
+  <view class="split"></view>
+  <view class="author-wrapper clearfix">
+    <image src="{{essay.author[0].web_url}}" class="author-avatar"></image>
+    <view class="author-desc">
+      <text class="author-name">{{essay.author[0].user_name}}</text>
+      <text class="author-summary">{{essay.author[0].summary}}</text>
+    </view>
+    <view class="follow">
+      <text>关注</text>
     </view>
   </view>
-  <view class="essay-body">
-    <view class="essay-title">
-      <text>{{essay.hp_title}}</text>
+  <text class="text">相关推荐</text>
+  <view class="split"></view>
+  <view class="about-wrapper"></view>
+  <text class="text">评论列表</text>
+  <view class="split"></view>
+  <view class="comment-wrapper"></view>
+  <view class="footer">
+    <view class="footer-favorite">
+      <image src="/images/icon/favorite.png"></image>
     </view>
-    <view class="essay-content">
-      <text>{{essay.hp_content}}</text>
-    </view>
-    <view class="essay-author-introduce">
-      <text>{{essay.hp_author_introduce}}</text>
+    <view class="footer-content">
+      <text>{{essay.praisenum}} 喜欢 | {{essay.commentnum}} 评论</text>
     </view>
   </view>
 </view>

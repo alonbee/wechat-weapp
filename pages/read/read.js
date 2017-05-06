@@ -44,5 +44,26 @@ Page({
     wx.navigateTo({
       url: 'carousel/carousel?id=' + carouselId
     });
+  },
+  // 跳转Essay详情
+  viewEssayTap: function (event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'essay/essay?id=' + id
+    });
+  },
+  // 跳转Serial详情
+  viewSerialTap: function (event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'serial/serial?id=' + id
+    });
+  },
+  // 跳转Question详情
+  viewQuestionTap: function (event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'question/question?id=' + id
+    });
   }
 })

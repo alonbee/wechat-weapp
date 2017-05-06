@@ -1,5 +1,5 @@
 <template name="essay">
-  <view class="article">
+  <view class="article" data-id="{{item.content_id}}" bindtap="viewEssayTap">
     <view class="header">
       <text>- ESSAY -</text>
     </view>

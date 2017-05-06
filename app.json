@@ -1,18 +1,18 @@
 {
   "pages": [
-    "pages/history/history",    
+    "pages/read/read",                          
     "pages/welcome/welcome",
     "pages/home/home",
     "pages/home/detail/detail",
     "pages/home/monthly/monthly",
-    "pages/read/read",              
     "pages/read/carousel/carousel",
     "pages/read/essay/essay",
     "pages/read/serial/serial",
     "pages/read/question/question",
     "pages/read/monthly/monthly",
     "pages/music/music",      
-    "pages/movie/movie"
+    "pages/movie/movie",
+    "pages/history/history"    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

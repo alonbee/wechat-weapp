@@ -38,7 +38,6 @@ Page({
             articleType: type,
             articles: articles
           });
-          console.log(articles);
         }
       }
     });
