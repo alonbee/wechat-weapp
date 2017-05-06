@@ -1,5 +1,6 @@
 // pages/read/monthly/monthly.js
-var api = require('../../../api/api.js');
+let api = require('../../../api/api.js');
+let util = require('../../../util/util.js');
 
 Page({
   data:{
@@ -9,47 +10,63 @@ Page({
   },
   // 页面加载
   onLoad:function(options){
-    var that = this;
-    var year = options.year;
-    var month = options.month;
-    var date = year + '-' + month;
-    var articleType = options.type;
-
-    api.getArticlesByDate({
+    let title = '';
+    if (options.title === '本月') {
+      title = util.formatHpsTitle();
+    } else {
+      title = options.title
+    }
+    this.setData({
+      title: title
+    });
+    
+    let month = options.month;
+    let type = options.type;
+    if (type === 'serial') {
+      type = 'serialcontent';
+    }
+    console.log(type, month);
+    api.getArticleByMonth({
       query: {
-        type: articleType,
-        date: date
+        type: type,
+        month: month
       },
-      success: function(res) {
+      success: (res) => {
         if (res.data.res === 0) {
-          var articles = res.data.data;
-          that.setData({ 
-            articles: articles,
-            articleType: articleType
+          let articles = res.data.data;
+          this.setData({
+            articleType: type,
+            articles: articles
           });
+          console.log(articles);
         }
       }
     });
   },
-  // 短篇文章详情
-  viewEssayDetailTap: function (event) {
-    var essayId = event.currentTarget.dataset.essayId;
-    wx.navigateTo({
-      url: '../essay/essay?id=' + essayId
+  onReady: function () {
+    wx.setNavigationBarTitle({
+      title: this.data.title
     });
   },
-  // 连载文章详情
+  // 跳转Essay详情
+  viewEssayTap: function (event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../essay/essay?id=' + id
+    });
+  },
+  // 跳转Serial详情
   viewSerialTap: function (event) {
-    var serialId = event.currentTarget.dataset.serialId;
+    let id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../serial/serial?id=' + serialId
+      url: '../serial/serial?id=' + id
     });
   },
-  // 问答文章详情
+  // 跳转Question详情
   viewQuestionTap: function (event) {
-    var questionId = event.currentTarget.dataset.questionId;
+    let id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../question/question?id=' + questionId
+      url: '../question/question?id=' + id
     });
   }
 })

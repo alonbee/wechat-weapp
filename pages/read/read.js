@@ -34,7 +34,6 @@ Page({
             question.question_makettime = util.formatEssayTime(question.question_makettime);
           });
           this.setData({ articles });
-          console.log(articles);
         } 
       }
     });

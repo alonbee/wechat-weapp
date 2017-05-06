@@ -1,83 +1,58 @@
 /* pages/read/monthly/monthly.wxss */
-
 .container {
-  border-top: 1px solid #eee;
+  width: 100%; 
   height: 100%;
+  border-top: 1px solid #b2b2b2; 
+  font-weight: 200; 
 }
 
-.carousel {
-  height: 300rpx;
+.article {
+  width: calc(100% - 24rpx);
+  margin: 0 12rpx;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.carousel-item {
-  position: relative;
-  height: 150px;
+.header {
+  margin-top: 30rpx;
 }
 
-.carousel-cover {
-  width: 100%;
-  height: 150px;
+.title {
+  font-weight: 600;
 }
 
-.carousel-meta {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 10rpx;
-  color: #fefefe;
-  font-size: 32rpx;
-  font-weight: 500;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.articles {
-  width: 90%;
-  margin: 30rpx auto;
-  height: 800rpx;
-}
-
-.articles-card {
-  margin: 20rpx 0;
-  border: 1px solid #ebebeb;
-  border-radius: 3px;
-}
-
-.article-item {
-  padding: 30rpx;
-}
-
-.article-item+.article-item {
-  border-top: 1px solid #ebebeb;
-}
-
-.article-header {
-  margin-bottom: 5px;
-}
-
-.article-title {
-  width: 80%;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 22px;
-}
-
-.article-type {
+.type {
   float: right;
-  font-size: 10px;
-  font-weight: 200;
-  padding: 5px 5px 5px 8px;
-  color: #89bdf7;
+  display: inline-block;
+  width: 82rpx;
+  height: 38rpx;
+  margin-top: 8rpx;
+  margin-right: 10rpx;
+  line-height: 38rpx;
   border: 1px solid #89bdf7;
+  font-size: 10px;
+  text-align: center;
   border-radius: 5px;
-  letter-spacing: 3px;
+  color: #89bdf7;
 }
 
-.article-author {
-  margin-top: 10rpx;
+.author, .content{
+  margin-top: 30rpx;
   font-size: 14px;
+  color: #5a5a5a;
 }
 
-.article-content {
-  font-size: 14px;
-  line-height: 1.5;
+.content {
+  margin-bottom: 50rpx;
 }
+
+.question {
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+}
+
+.ques-title {
+  display: inline-block;
+  width: 80%; 
+  font-weight: 600;
+}
+
