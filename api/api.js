@@ -33,7 +33,7 @@ const getReadingCarousel = (params) => wxRequest(params, perfix + 'reading/carou
 const getReadingCarouselById = (params) => wxRequest(params, perfix + 'reading/carousel/' + params.query.id);
 const getReadingIndex = (params) => wxRequest(params, perfix + 'reading/index');
 const getEssayById = (params) => wxRequest(params, perfix + 'essay/' + params.query.id);
-const getSerialById = (params) => wxRequest(params, + perfix + 'serialcontent/' + parmas.query.id);
+const getSerialById = (params) => wxRequest(params, perfix + 'serialcontent/' + params.query.id);
 const getQuestionById = (parmas) => wxRequest(parmas, perfix + 'question/' + parmas.query.id);
 const getArticleByMonth = (params) => wxRequest(params, perfix + params.query.type + '/bymonth/' + params.query.month);
 

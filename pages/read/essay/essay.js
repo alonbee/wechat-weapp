@@ -17,7 +17,6 @@ Page({
           let essay = res.data.data;
           essay.hp_content = util.filterContent(essay.hp_content);
           this.setData({ essay });
-          console.log(essay);
         }
       }
     });
