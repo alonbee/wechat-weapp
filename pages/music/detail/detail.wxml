@@ -1,0 +1,4 @@
+<!--pages/music/detail/detail.wxml-->
+<view class="container">
+    音乐详情页
+</view>

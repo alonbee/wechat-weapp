@@ -1,5 +1,5 @@
 <template name="music">
-  <view class="music-wrapper">
+  <view class="music-wrapper" data-id="{{item.id}}" bindtap="viewMuiscDetail">
     <view class="header">
       <text>- 音乐 -</text>
     </view>

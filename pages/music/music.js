@@ -40,5 +40,11 @@ Page({
     } else {
       this.setData({ musics });
     }
+  },
+  viewMuiscDetail: function (event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'detail/detail?id=' + id
+    });
   }
 })

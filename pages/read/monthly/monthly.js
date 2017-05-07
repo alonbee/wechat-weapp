@@ -9,7 +9,7 @@ Page({
     title: ''
   },
   // 页面加载
-  onLoad:function(options){
+  onLoad: function(options) {
     let title = '';
     if (options.title === '本月') {
       title = util.formatHpsTitle();
