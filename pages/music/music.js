@@ -1,46 +1,44 @@
 // pages/music/music.js
-var api = require('../../api/api.js');
-var util = require('../../util/util.js');
+let api = require('../../api/api.js');
+let util = require('../../util/util.js');
 
 Page({
   data:{
-    musics: []
+    musics: [],
+    is_play: false
   },
   // 页面加载
-  onLoad:function(options){
-    var that = this;
+  onLoad: function (options) {
     api.getMusicIdList({
-      success: function (res) {
+      success: (res) => {
         if (res.data.res === 0) {
-          var idList = res.data.data;
-          that.getMusics(idList);
+          let idList = res.data.data;
+          this.getMusicDetail(idList);
         }
       }
     });
   },
-  getMusics: function (idList) {
-    var that = this;
-    var musics = this.data.musics;
-
+  // 获取音乐首页每个id的详情
+  getMusicDetail: function (idList) {
+    let musics = this.data.musics;
     if (idList.length > 0) {
-      api.getMusicDetailById({
+      api.getMuiscById({
         query: {
           id: idList.shift()
         },
-        success: function (res) {
+        success:  (res) => {
           if (res.data.res === 0) {
-            var music = res.data.data;
+            let music = res.data.data;
 
             music.story = util.filterContent(music.story);
-            music.maketime = util.formatMakettime(music.maketime);
+            music.last_update_date = util.formatBeforeTime(music.last_update_date);
             musics.push(music);
           }
-          that.getMusics(idList);
+          this.getMusicDetail(idList);
         }
       });
     } else {
-      that.setData({ musics });
+      this.setData({ musics });
     }
   }
-
 })

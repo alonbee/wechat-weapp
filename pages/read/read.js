@@ -25,13 +25,13 @@ Page({
           let articles = res.data.data;
 
           articles.essay.map((essay) => {
-            essay.hp_makettime = util.formatEssayTime(essay.hp_makettime);
+            essay.hp_makettime = util.formatBeforeTime(essay.hp_makettime);
           });
           articles.serial.map((serial) => {
-            serial.maketime = util.formatEssayTime(serial.maketime);
+            serial.maketime = util.formatBeforeTime(serial.maketime);
           });
           articles.question.map((question) => {
-            question.question_makettime = util.formatEssayTime(question.question_makettime);
+            question.question_makettime = util.formatBeforeTime(question.question_makettime);
           });
           this.setData({ articles });
         } 

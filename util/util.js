@@ -63,7 +63,7 @@ const formatHpListTime = (dateString) => {
     return dateArr[1] + ' ' + dateArr[0] + '.' + dateArr[2];
 }
 
-const formatEssayTime = (dataString) => {
+const formatBeforeTime = (dataString) => {
     let date = new Date(dataString);
     let now = new Date();
     let val = Math.floor((now - date) / (1000 * 60 * 60));
@@ -78,5 +78,5 @@ module.exports = {
     getDateList,
     formatHpsTitle,
     formatHpListTime,
-    formatEssayTime
+    formatBeforeTime
 }
