@@ -17,7 +17,6 @@ Page({
           let question = res.data.data;
           question.answer_content = util.filterContent(question.answer_content);
           this.setData({ question });
-          console.log(question);
         }
       }
     })

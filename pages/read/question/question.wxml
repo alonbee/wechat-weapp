@@ -6,17 +6,40 @@
     <view class="question-content">
         <text>{{question.question_content}}</text>
     </view>
-    <view class="answer">
-        <view class="answer-header">
-            <view class="answer-title">
-                <text>{{question.answer_title}}</text>
-            </view>
-            <view class="answer-makettime">
-                <text>{{question.question_makettime}}</text>
-            </view>
+    <view class="question-author">
+        <text>----{{question.asker.user_name}}问道</text>
+    </view>
+    <view class="ques-ans-split"></view>
+    <view class="answer-author">
+        <text>{{question.answerer.user_name}}答:</text>
+    </view>
+    <view class="answer-content">
+        <text>{{question.answer_content}}</text>
+    </view>
+    <view class="author-introduce">
+        <text>{{question.charge_edt}}</text>
+    </view>
+    <text class="text">回答者</text>
+    <view class="split"></view>
+    <view class="author-wrapper clearfix">
+        <image src="{{question.answerer.web_url}}" class="author-avatar"></image>
+        <view class="author-desc">
+            <text class="author-name">{{question.answerer.user_name}}</text>
+            <text class="author-summary">{{question.answerer.summary}}</text>
         </view>
-        <view class="answer-content">
-            <text>{{question.answer_content}}</text>
+        <view class="follow">
+            <text>关注</text>
+        </view>
+    </view>
+    <text class="text">全部评论</text>
+    <view class="split"></view>
+    <view class="comment-wrapper"></view>
+    <view class="footer">
+        <view class="footer-favorite">
+            <image src="/images/icon/favorite.png"></image>
+        </view>
+        <view class="footer-content">
+            <text>{{question.praisenum}} 喜欢 | {{question.commentnum}} 评论</text>
         </view>
     </view>
 </view>
