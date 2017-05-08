@@ -52,5 +52,11 @@ Page({
     } else {
       this.setData({ movies });
     }
+  },
+  viewMusicDetail: function (event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'detail/detail?id=' + id
+    });
   }
 })

@@ -1,4 +1,3 @@
-
 <!--pages/read/read.wxml-->
 <view class="container">
   <swiper class="carousel" indicator-dots="true" autoplay="true">

@@ -1,5 +1,5 @@
 <template name="movie">
-    <view class="movie-wrapper">
+    <view class="movie-wrapper" data-id="{{item.movie_id}}" bindtap="viewMusicDetail">
         <view class="header">
             <text>- 影视 -</text>
         </view>
