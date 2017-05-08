@@ -44,7 +44,7 @@ const getMusicByMonth = (parmas) => wxRequest(parmas, perfix + 'music/bymonth/' 
 
 // movie
 const getMovieList = (parmas) => wxRequest(parmas, perfix + 'movie/list/0');
-const getMovieById = (parmas) => wxRequest(parmas, perfix + 'movie/detail/' + params.query.id);
+const getMovieById = (parmas) => wxRequest(parmas, perfix + 'movie/detail/' + parmas.query.id);
 const getMovieStoryById = (parmas) => wxRequest(parmas, perfix + 'movie/' + parmas.query.id + '/story/1/0');
 
 //comment

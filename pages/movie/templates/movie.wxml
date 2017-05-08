@@ -1,0 +1,33 @@
+<template name="movie">
+    <view class="movie-wrapper">
+        <view class="header">
+            <text>- 影视 -</text>
+        </view>
+        <view class="title">
+            <text>{{item.title}}</text>
+        </view>
+        <view class="author">
+            <text>文 / {{item.author_list[0].user_name}}</text>
+        </view>
+        <view class="picture">
+            <image src="{{item.movie_detail.detailcover}}" mode="aspectFill"></image>
+        </view>
+        <view class="summary">
+            <text>{{item.movie_detail.officialstory}}</text>
+            <view class="movie-title">
+                <text>---- 《{{item.movie_detail.title}}》</text>
+            </view>
+        </view>
+        <view class="info clearfix">
+        <view class="time">
+            <text>{{item.input_date}}</text>
+        </view>
+        <view class="fav-share">
+            <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+            <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+            <image class="share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
+        </view>
+        </view>
+    </view>
+    <view class="footer"></view>  
+</template>
