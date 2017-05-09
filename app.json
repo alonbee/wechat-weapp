@@ -14,6 +14,7 @@
     "pages/music/music",                      
     "pages/music/detail/detail",
     "pages/music/monthly/monthly",
+    "pages/movie/story/story",
     "pages/movie/detail/detail",
     "pages/history/history"    
   ],

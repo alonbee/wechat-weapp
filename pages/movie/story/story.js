@@ -1,4 +1,4 @@
-// pages/movie/story/story.js
+// pages/movie/detail/detail.js
 let api = require('../../../api/api.js');
 let util = require('../../../util/util.js');
 
@@ -24,12 +24,18 @@ Page({
                 movie.movie_detail = movie_detail;
                 movie.content = util.filterContent(movie.content);
                 this.setData({ movie });
-                console.log(movie);
               }
             }
           });
         }
       }
+    });
+  },
+  viewDetailTap: function () {
+    let id = this.data.movie.movie_id;
+
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id
     });
   }
 })

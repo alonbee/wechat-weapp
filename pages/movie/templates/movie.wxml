@@ -13,7 +13,7 @@
             <image src="{{item.movie_detail.detailcover}}" mode="aspectFill"></image>
         </view>
         <view class="summary">
-            <text>{{item.movie_detail.officialstory}}</text>
+            <text>{{item.summary}}</text>
             <view class="movie-title">
                 <text>---- 《{{item.movie_detail.title}}》</text>
             </view>

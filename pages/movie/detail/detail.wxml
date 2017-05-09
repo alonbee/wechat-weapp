@@ -1,44 +1,19 @@
-<!--pages/movie/detail/detail.wxml-->
+<!--pages/movie/story/story.wxml-->
 <view class="container">
-    <swiper class="photos" indicator-dots="true">
-        <block wx:for="{{movie.movie_detail.photo}}" wx:key="idx">
-            <swiper-item>
-                <view class="photo-item">
-                    <image src="{{item}}" mode="aspectFill"></image>
-                </view>
-            </swiper-item>
-        </block>
-    </swiper>
-    <view class="story">
-        <view class="movie-name">
-            <text>· 《{{movie.movie_detail.title}}》 ·</text>
-        </view>
-        <view class="title">
-            <text>{{movie.title}}</text>
-        </view>
-        <view class="split"></view>
-        <view class="author">
-            <text>文 / {{movie.author_list[0].user_name}}</text>
-        </view>
-        <view class="content">
-            <text>{{movie.content}}</text>
-        </view>
-        <view class="author-introduce">
-            <text>{{movie.charge_edt}}</text>
-            <text>{{movie.copyright}}</text>
-        </view>
-        <view class="comment">
-            <text class="text">评论列表</text>
-            <view class="split"></view>
-            <view class="comment-wrapper"></view>
-        </view>
-        <view class="footer">
-            <view class="footer-favorite">
-                <image src="/images/icon/favorite.png"></image>
-            </view>
-            <view class="footer-content">
-                <text>{{movie.praisenum}} 喜欢 | {{movie.movie_detail.commentnum}} 评论</text>
-            </view>
-        </view>
+    <view class="poster">
+        <image src="{{movie.movie_detail.poster}}"></image>
+    </view>
+    <view class="title">
+        <text>{{movie.movie_detail.title}}</text>
+    </view>
+    <view class="summary">
+        <text>{{movie.summary}}</text>
+    </view>
+    <view class="info">
+        <text>{{movie.movie_detail.info}}</text>
+    </view>
+    <text class="text">--- 剧情简介 ---</text>
+    <view class="content">
+        <text>{{movie.movie_detail.officialstory}}</text>
     </view>
 </view>
