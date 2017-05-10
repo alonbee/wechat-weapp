@@ -50,7 +50,23 @@
         <view class="comment">
             <text class="text">评论列表</text>
             <view class="split"></view>
-            <view class="comment-wrapper"></view>
+            <view class="comment-wrapper">
+                <block wx:for="{{comments}}" wx:key="id">
+                    <view class="comment-item">
+                        <view class="comment-header">
+                            <image class="comment-user-avatar" src="{{item.user.web_url}}"></image>
+                            <text class="comment-user-name">{{item.user.user_name}}</text>
+                            <text class="comment-date">{{item.input_date}}</text>
+                        </view>
+                        <view class="comment-main">
+                            <text>{{item.content}}</text>
+                        </view>
+                        <view class="comment-footer">
+
+                        </view>
+                    </view>
+                </block>
+            </view>
         </view>
         <view class="footer">
             <view class="footer-favorite">

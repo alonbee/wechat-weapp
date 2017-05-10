@@ -48,7 +48,7 @@ const getMovieById = (parmas) => wxRequest(parmas, perfix + 'movie/detail/' + pa
 const getMovieStoryById = (parmas) => wxRequest(parmas, perfix + 'movie/' + parmas.query.id + '/story/1/0');
 
 //comment
-const getCommentList = (params) => wxRequest(params, perfix + 'comment/praiseandtime' + params.query.type + '/' + params.query.id + '/' + params.query.index);
+const getCommentList = (params) => wxRequest(params, perfix + 'comment/praiseandtime/' + params.query.type + '/' + params.query.id + '/0');
 
 // address
 const getAddress = (params) => wxRequest(params, 'http://apis.map.qq.com/ws/location/v1/ip?key=' + params.query.key);

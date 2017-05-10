@@ -4,7 +4,8 @@ let util = require('../../../util/util.js');
 
 Page({
   data:{
-    movie: {}
+    movie: {},
+    comments: []
   },
   onLoad: function (options) {
     api.getMovieStoryById({
@@ -27,6 +28,19 @@ Page({
               }
             }
           });
+        }
+      }
+    });
+
+    api.getCommentList({
+      query: {
+        type: 'movie',
+        id: options.id
+      },
+      success: (res) => {
+        if (res.data.res === 0) {
+          let comments = res.data.data.data;
+          this.setData({ comments });
         }
       }
     });
