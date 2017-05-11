@@ -63,11 +63,21 @@ const formatHpListTime = (dateString) => {
     return dateArr[1] + ' ' + dateArr[0] + '.' + dateArr[2];
 }
 
-const formatBeforeTime = (dataString) => {
-    let date = new Date(dataString);
+const getBeforeTime = (dateString) => {
+    let date = new Date(dateString);
     let now = new Date();
-    let val = Math.floor((now - date) / (1000 * 60 * 60));
-    return val;
+    let hour = Math.floor((now - date) / (1000 * 60 * 60));
+    let day = Math.floor((now - date) / (1000 * 60 * 60 * 24));;
+
+    if (hour < 24) {
+        return hour + ' 小时前';
+    } 
+
+    if (day < 3) {
+        return day + ' 天前';
+    }
+
+    return formatHpListTime(dateString);
 }
 
 module.exports = {
@@ -78,5 +88,5 @@ module.exports = {
     getDateList,
     formatHpsTitle,
     formatHpListTime,
-    formatBeforeTime
+    getBeforeTime
 }

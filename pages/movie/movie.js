@@ -39,8 +39,7 @@ Page({
                 if (res.data.res === 0) {
                   let movie_detail = res.data.data;
                   movie.movie_detail = movie_detail;
-                  movie.content = util.filterContent(movie.content);
-                  movie.input_date = util.formatHpsTitle(movie.input_date);
+                  movie.input_date = util.getBeforeTime(movie.input_date);
                   movies.push(movie);
                   this.getMovieStory(ids);
                 }
@@ -55,8 +54,10 @@ Page({
   },
   viewMusicDetail: function (event) {
     let id = event.currentTarget.dataset.id;
+    let userId = event.currentTarget.dataset.userId;
+
     wx.navigateTo({
-      url: 'story/story?id=' + id
+      url: `story/story?id=${id}&user_id=${userId}`
     });
   }
 })

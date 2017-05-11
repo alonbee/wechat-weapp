@@ -5,9 +5,17 @@ let util = require('../../../util/util.js');
 Page({
   data:{
     movie: {},
-    comments: []
+    comments: [],
+    current: 0,
+    followed: false,
+    showUser: false
   },
   onLoad: function (options) {
+    if (options.user_id !== '0') {
+      let showUser = true;
+      this.setData({ showUser });
+    }
+
     api.getMovieStoryById({
       query: {
         id: options.id
@@ -44,12 +52,36 @@ Page({
         }
       }
     });
+    
+    let usersFollowed = wx.getStorageSync('users_is_followed');
+    let userId = options.user_id;
+    console.log(userId);
+    if (usersFollowed) {
+      let userFollowed = usersFollowed[userId];
+      if (!userFollowed) {
+        usersFollowed[userId] = false;
+        wx.setStorageSync('users_is_followed', usersFollowed);
+      }
+      this.setData({
+        followed: userFollowed
+      });
+    } else {
+      let usersFollowed = {};
+      usersFollowed[userId] = false;
+      wx.setStorageSync('users_is_followed', usersFollowed);
+    }
+
   },
-  viewDetailTap: function () {
+  viewMovieDetailTap: function () {
     let id = this.data.movie.movie_id;
 
     wx.navigateTo({
       url: '../detail/detail?id=' + id
     });
+  },
+  // 监听滑块的index
+  handleChange: function (event) {
+    let current = event.detail.current;
+    this.setData({ current });
   }
 })

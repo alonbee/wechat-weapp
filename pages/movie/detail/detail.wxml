@@ -12,7 +12,7 @@
     <view class="info">
         <text>{{movie.movie_detail.info}}</text>
     </view>
-    <text class="text">--- 剧情简介 ---</text>
+    <text class="text">—— 剧情简介 ——</text>
     <view class="content">
         <text>{{movie.movie_detail.officialstory}}</text>
     </view>

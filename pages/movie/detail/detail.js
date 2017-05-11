@@ -22,9 +22,7 @@ Page({
               if (res.data.res === 0) {
                 let movie_detail = res.data.data;
                 movie.movie_detail = movie_detail;
-                movie.content = util.filterContent(movie.content);
                 this.setData({ movie });
-                console.log(movie);
               }
             }
           });

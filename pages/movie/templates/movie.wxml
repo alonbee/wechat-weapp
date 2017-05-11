@@ -1,5 +1,5 @@
 <template name="movie">
-    <view class="movie-wrapper" data-id="{{item.movie_id}}" bindtap="viewMusicDetail">
+    <view class="movie-wrapper" data-id="{{item.movie_id}}"  data-user-id="{{item.user.user_id}}" bindtap="viewMusicDetail">
         <view class="header">
             <text>- 影视 -</text>
         </view>
@@ -15,19 +15,20 @@
         <view class="summary">
             <text>{{item.summary}}</text>
             <view class="movie-title">
-                <text>---- 《{{item.movie_detail.title}}》</text>
+                <text>—— 《{{item.movie_detail.title}}》</text>
             </view>
         </view>
-        <view class="info clearfix">
-        <view class="time">
-            <text>{{item.input_date}}</text>
-        </view>
-        <view class="fav-share">
-            <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-            <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-            <image class="share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
-        </view>
+        <view class="article-footer clearfix">
+            <view class="before-time">
+                <text>{{item.input_date}}</text>
+            </view>
+            <view class="praise-share">
+                <text class="praise-num">{{item.praisenum}}</text>
+                <image class="praise-image" wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+                <image class="praise-image" wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+                <image class="share-image" src="/images/icon/share.png" catchtap="onShareTap"></image> 
+            </view>
         </view>
     </view>
-    <view class="footer"></view>  
+    <view class="article-split"></view>  
 </template>
