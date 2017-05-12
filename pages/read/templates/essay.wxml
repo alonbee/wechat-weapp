@@ -1,5 +1,5 @@
 <template name="essay">
-  <view class="article" data-id="{{item.content_id}}" bindtap="viewEssayTap">
+  <view class="article" data-id="{{item.content_id}}" data-user-id="{{item.author[0].user_id}}" bindtap="viewEssayTap">
     <view class="header">
       <text>- ESSAY -</text>
     </view>
@@ -15,16 +15,16 @@
     <view class="content">
       <text>{{item.guide_word}}</text>
     </view>
-    <view class="info clearfix">
-      <view class="time">
-        <text>{{item.hp_makettime}}小时前</text>
+    <view class="footer clearfix">
+      <view class="before-time">
+        <text>{{item.hp_makettime}}</text>
       </view>
-      <view class="fav-share">
-        <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-        <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-        <image class="share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
+      <view class="praise-share">
+        <image class="praise-image" wx:if="{{item.is_collected}}" src="/images/icon/favorite_active.png" catchtap="onCollectionTap" data-article-id="{{item.content_id}}"></image>
+        <image class="praise-image" wx:else src="/images/icon/favorite.png" catchtap="onCollectionTap" data-article-id="{{item.content_id}}"></image>
+        <image class="share-image" src="/images/icon/share.png" catchtap="onShareTap"></image> 
       </view>
     </view>
   </view>
-  <view class="footer"></view>  
+  <view class="article-split"></view>  
 </template>

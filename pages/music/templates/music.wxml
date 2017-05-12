@@ -29,7 +29,7 @@
       <view class="praise-share">
         <text class="praise-num">{{item.praisenum}}</text>
         <image class="praise-image" wx:if="{{item.is_collected}}" src="/images/icon/favorite_active.png" catchtap="onCollectionTap" data-music-id="{{item.id}}"></image>
-        <image class="praise-image" wx:else src="/images/icon/favorite.png"  catchtap="onCollectionTap" data-music-id="{{item.id}}"></image>
+        <image class="praise-image" wx:else src="/images/icon/favorite.png" catchtap="onCollectionTap" data-music-id="{{item.id}}"></image>
         <image class="share-image" src="/images/icon/share.png" catchtap="onShareTap"></image> 
       </view>
     </view>

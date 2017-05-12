@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/read/read",                                  
     "pages/welcome/welcome",
     "pages/home/home",
     "pages/home/detail/detail",
     "pages/home/monthly/monthly",
-    "pages/read/read",                              
     "pages/read/carousel/carousel",
     "pages/read/essay/essay",
     "pages/read/serial/serial",

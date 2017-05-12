@@ -7,7 +7,8 @@ Page({
     question: {}
   },
   // 页面加载
-  onLoad:function(options){
+  onLoad: function (options) {
+    console.log(options);
     api.getQuestionById({
       query: {
         id: options.id
