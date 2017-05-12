@@ -134,7 +134,7 @@ Page({
     wx.showActionSheet({
       itemList: itemList,
       itemColor: "#666",
-      success: function(res) {
+      success: (res) => {
         // 显示模态弹窗
         wx.showModal({
           title: "这是分享的标题",

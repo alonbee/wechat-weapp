@@ -1,5 +1,5 @@
 <template name="music">
-  <view class="music-wrapper" data-id="{{item.id}}" bindtap="viewMuiscDetail">
+  <view class="music-wrapper" data-id="{{item.id}}" data-user-id="{{item.story_author.user_id}}" bindtap="viewMuiscDetail">
     <view class="header">
       <text>- 音乐 -</text>
     </view>
@@ -11,7 +11,7 @@
     </view>
     <view class="picture">
       <image src="{{item.cover}}"></image>
-      <view class="control">
+      <view class="control" catchtap="togglePlayTap" data-id="{{item.id}}">
         <image wx:if="{{is_play}}" src="/images/icon/pause.png"></image>
         <image wx:else src="/images/icon/play.png"></image>
       </view>
@@ -22,16 +22,17 @@
     <view class="summary">
       <text>{{item.story_summary}}</text>
     </view>
-    <view class="info clearfix">
-      <view class="time">
-        <text>{{item.last_update_date}}小时前</text>
+    <view class="footer clearfix">
+      <view class="before-time">
+        <text>{{item.last_update_date}}</text>
       </view>
-      <view class="fav-share">
-        <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-        <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-        <image class="share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
+      <view class="praise-share">
+        <text class="praise-num">{{item.praisenum}}</text>
+        <image class="praise-image" wx:if="{{item.is_collected}}" src="/images/icon/favorite_active.png" catchtap="onCollectionTap" data-music-id="{{item.id}}"></image>
+        <image class="praise-image" wx:else src="/images/icon/favorite.png"  catchtap="onCollectionTap" data-music-id="{{item.id}}"></image>
+        <image class="share-image" src="/images/icon/share.png" catchtap="onShareTap"></image> 
       </view>
     </view>
   </view>
-  <view class="footer"></view>  
+  <view class="article-split"></view>  
 </template>

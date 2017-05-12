@@ -88,24 +88,40 @@
     color: #a6a6a6;
 }
 
-.time {
+.footer {
+    width: 100%;
+    margin-bottom: 30rpx;
+    margin-top: 80rpx;
+    font-size: 14px;
+    color: #a6a6a6;
+}
+
+.before-time {
     float: left;
 }
 
-.fav-share {
+.praise-share {
     float: right;
 }
 
-.fav-share image {
-    width: 18px;
-    height: 18px;
+.praise-num {
+    display: inline-block;
+    margin-right: 10rpx;
+    font-size: 14px;    
+    vertical-align: top;
 }
 
-.share {
+.praise-image, .share-image {
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+}
+
+.share-image {
     margin-left: 30rpx;
 }
 
-.footer {
+.article-split {
     width: 100%;
     height: 14rpx;
     background-color: #eee;

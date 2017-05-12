@@ -7,6 +7,7 @@ Page({
     musics: [],
     title: ''
   },
+  // 页面加载
   onLoad: function (options) {
     let title = '';
     if (options.title === '本月') {
@@ -17,7 +18,7 @@ Page({
     this.setData({
       title: title
     });
-
+    // 根据月份请求音乐列表
     api.getMusicByMonth({
       query: {
         month: options.month
@@ -30,10 +31,12 @@ Page({
       }
     });
   },
+  // 跳转音乐详情页
   viewMusicDetail: function (event) {
     let id = event.currentTarget.dataset.id;
+    let userId = event.currentTarget.dataset.userId;
     wx.navigateTo({
-      url: '../detail/detail?id=' + id
+      url: `../detail/detail?id=${id}&user_id=${userId}`
     });
   }
 })
