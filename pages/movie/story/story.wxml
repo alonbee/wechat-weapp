@@ -7,7 +7,7 @@
                 <text class="poster-current">1/{{movie.movie_detail.photo.length + 1}}</text>
             </view>
         </swiper-item>
-        <block wx:for="{{movie.movie_detail.photo}}" wx:for-index="idx">
+        <block wx:for="{{movie.movie_detail.photo}}" wx:for-index="idx" wx:key="idx">
             <swiper-item>
                 <view class="poster-item">
                     <image src="{{item}}" mode="aspectFill"></image>
@@ -44,9 +44,9 @@
                     <text class="author-name">{{movie.user.user_name}}</text>
                     <text class="author-summary">{{movie.user.summary}}</text>
                 </view>
-                <view class="author-follow">
-                    <text wx:if="{{followed}}">关注</text>
-                    <text wx:else>已关注</text>
+                <view class="author-follow" catchtap="userFollowTap">
+                    <text wx:if="{{followed}}">已关注</text>
+                    <text wx:else>关注</text>
                 </view>
             </view>      
         </view>

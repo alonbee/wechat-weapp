@@ -1,5 +1,5 @@
 <template name="movie">
-    <view class="movie-wrapper" data-id="{{item.movie_id}}"  data-user-id="{{item.user.user_id}}" bindtap="viewMusicDetail">
+    <view class="movie-wrapper" data-id="{{item.movie_id}}"  data-user-id="{{item.user.user_id}}" bindtap="viewStoryDetail">
         <view class="header">
             <text>- 影视 -</text>
         </view>
@@ -18,14 +18,14 @@
                 <text>—— 《{{item.movie_detail.title}}》</text>
             </view>
         </view>
-        <view class="article-footer clearfix">
+        <view class="footer clearfix">
             <view class="before-time">
                 <text>{{item.input_date}}</text>
             </view>
             <view class="praise-share">
                 <text class="praise-num">{{item.praisenum}}</text>
-                <image class="praise-image" wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-                <image class="praise-image" wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+                <image class="praise-image" wx:if="{{item.is_collected}}" src="/images/icon/favorite_active.png" catchtap="onCollectionTap" data-story-id="{{item.id}}"></image>
+                <image class="praise-image" wx:else src="/images/icon/favorite.png" catchtap="onCollectionTap" data-story-id="{{item.id}}"></image>
                 <image class="share-image" src="/images/icon/share.png" catchtap="onShareTap"></image> 
             </view>
         </view>
