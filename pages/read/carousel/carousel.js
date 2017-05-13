@@ -7,6 +7,7 @@ Page({
   },
   // 页面加载
   onLoad: function (options) {
+    // 请求阅读首页轮播图详情
     api.getReadingCarouselById({
       query: {
         id: options.id

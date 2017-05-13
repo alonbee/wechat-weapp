@@ -15,6 +15,11 @@ page {
 }
 
 /* 文章详细页作者信息样式 */
+.author-info {
+    width: 100%;
+    margin-bottom: 60rpx;
+}
+
 .author-wrapper {
     width: 100%;
     margin-bottom: 50rpx;
@@ -55,6 +60,41 @@ page {
     text-align: center;
     font-size: 12px;
     color: #666;
+}
+/* 文章详情页推荐列表样式 */
+.recommend {
+    width: 100%;
+    margin-bottom: 60rpx;
+}
+
+.recommend-item {
+    font-size: 0;
+}
+
+.recommend-type {
+    display: inline-block;
+    width: 15%;
+    height: 100%;
+    font-size: 16px;
+    color: #ccc;
+    vertical-align: top;
+}
+
+.recommend-content {
+    display: inline-block;
+    vertical-align: top;    
+}
+
+.recommend-title {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.recommend-info {
+    display: block;
+    font-size: 12px;
+    color: #ccc;
 }
 
 /* 文章详情页评论列表样式 */
