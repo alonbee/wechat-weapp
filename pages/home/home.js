@@ -35,14 +35,14 @@ Page({
             hp.hp_author = util.formatHpAuthor(hp.hp_author);
             hp.hp_content = util.formatHpContent(hp.hp_content);
             // 设置本地存储，实现收藏
-            let hpsIsFavorite = wx.getStorageSync('hps_is_favorite') || {};
-            if (hpsIsFavorite[hp.hpcontent_id]) {
-              let isFavorite = hpsIsFavorite[hp.hpcontent_id];
-              hp.is_favorite = isFavorite;
+            let hpsIsCollected = wx.getStorageSync('hps_is_collected') || {};
+            if (hpsIsCollected[hp.hpcontent_id]) {
+              let isCollected = hpsIsCollected[hp.hpcontent_id];
+              hp.is_collected = isCollected;
             } else {
-              hpsIsFavorite[hp.hpcontent_id] = false;
-              hp.is_favorite = false;
-              wx.setStorageSync('hps_is_favorite', hpsIsFavorite);
+              hpsIsCollected[hp.hpcontent_id] = false;
+              hp.is_collected = false;
+              wx.setStorageSync('hps_is_collected', hpsIsCollected);
             }
             hps.push(hp);
           }
@@ -80,38 +80,38 @@ Page({
     }
   },
   // 点击收藏事件
-  onFavoriteTap: function (event) {
+  onCollectionTap: function (event) {
     let hpId = event.currentTarget.dataset.hpId;
-    this.getHpsIsFavoriteAsy(hpId);
+    this.getHpIsCollected(hpId);
   },
   // 取得所有的卡片是否收藏信息
-  getHpsIsFavoriteAsy: function(hpId) {
+  getHpIsCollected: function (hpId) {
     wx.getStorage({
-      key: 'hps_is_favorite',
+      key: 'hps_is_collected',
       success: (res) => {
-        let hpsIsFavorite = res.data;
-        let isFavorite = hpsIsFavorite[hpId];
+        let hpsIsCollected = res.data;
+        let isCollected = hpsIsCollected[hpId];
         // 取反设置收藏
-        isFavorite = !isFavorite;
-        hpsIsFavorite[hpId] = isFavorite;
-        this.showToast(hpsIsFavorite, isFavorite, hpId);
+        isCollected = !isCollected;
+        hpsIsCollected[hpId] = isCollected;
+        this.showToast(hpsIsCollected, isCollected, hpId);
       }
     });
   },
   // 设置和显示收藏信息
-  showToast: function (hpsIsFavorite, isFavorite, hpId) {
+  showToast: function (hpsIsCollected, isCollected, hpId) {
     // 更新收藏信息
-    wx.setStorageSync('hps_is_favorite', hpsIsFavorite);
+    wx.setStorageSync('hps_is_collected', hpsIsCollected);
     // 更新数据
     let hps = this.data.hps;
     for (let i = 0; i < hps.length; i++) {
       if (hps[i].hpcontent_id === hpId) {
-        hps[i].is_favorite = isFavorite;
+        hps[i].is_collected = isCollected;
       }
     }
     this.setData({ hps });
     wx.showToast({
-      title: isFavorite? "收藏成功" : "取消收藏",
+      title: isCollected? "收藏成功" : "取消收藏",
       duration: 1000,
       icon: "success"
     });

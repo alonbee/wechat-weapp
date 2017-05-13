@@ -9,7 +9,5 @@
         </block>
         <swiper-item></swiper-item>
     </swiper>
-    <view class="articles">
-        <view class="header"></view>
-    </view>
+    <view class="article-split"></view>    
 </view>

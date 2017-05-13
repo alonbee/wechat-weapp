@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/history/history",    
     "pages/welcome/welcome",
     "pages/home/home",
     "pages/home/detail/detail",
@@ -16,7 +15,8 @@
     "pages/music/monthly/monthly",
     "pages/movie/movie",        
     "pages/movie/story/story",
-    "pages/movie/detail/detail"
+    "pages/movie/detail/detail",
+    "pages/history/history"    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

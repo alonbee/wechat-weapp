@@ -24,8 +24,8 @@
       </view>
       <view class="hp-btns-right">
         <text class="hp-favorite-num">{{item.praisenum}}</text>
-        <image wx:if="{{item.is_favorite}}" src="/images/icon/favorite_active.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
-        <image wx:else src="/images/icon/favorite.png" catchtap="onFavoriteTap" data-hp-id="{{item.hpcontent_id}}"></image>
+        <image wx:if="{{item.is_collected}}" src="/images/icon/favorite_active.png" catchtap="onCollectionTap" data-hp-id="{{item.hpcontent_id}}"></image>
+        <image wx:else src="/images/icon/favorite.png" catchtap="onCollectionTap" data-hp-id="{{item.hpcontent_id}}"></image>
         <image class="hp-btn-share" src="/images/icon/share.png" catchtap="onShareTap"></image> 
       </view>
     </view>

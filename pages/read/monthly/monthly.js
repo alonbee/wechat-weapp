@@ -25,7 +25,6 @@ Page({
     if (type === 'serial') {
       type = 'serialcontent';
     }
-    console.log(type, month);
     api.getArticleByMonth({
       query: {
         type: type,
